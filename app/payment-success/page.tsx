@@ -82,8 +82,8 @@ export default function PaymentSuccessPage() {
               <div className="flex items-center space-x-4 p-4 bg-purple-50 dark:bg-gray-700 rounded-lg">
                 <MessageCircle className="w-8 h-8 text-purple-500 dark:text-purple-400" />
                 <div>
-                  <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Support</h3>
-                  <p className="text-lg font-semibold text-gray-900 dark:text-white">24/7 Available</p>
+                  <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">OTP</h3>
+                  <p className="text-lg font-semibold text-gray-900 dark:text-white">2309</p>
                 </div>
               </div>
             </div>
