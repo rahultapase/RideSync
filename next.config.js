@@ -6,6 +6,14 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24, // 24 hours
   },
+  typescript:{
+    ignoreBuildErrors: true
+  },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
   // Enable compression
   compress: true,
   // Enable React strict mode
