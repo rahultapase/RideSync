@@ -16,7 +16,7 @@ RideSync is a ride-sharing application that connects users with nearby drivers f
 
 ### Clone the Repository:
 ```sh
- git clone https://github.com/your-username/ridesync.git
+ git clone https://github.com/Shadowarc23/ridesync.git
 ```
 
 ### Install Dependencies:
