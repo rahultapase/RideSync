@@ -31,6 +31,9 @@ export default function HomePage() {
   const [carAmount, setCarAmount] = useState<string | null>(null);
 
   const [isLoading, setIsLoading] = useState(true);
+  
+  // Add a new state for the active tab on mobile
+  const [activeTab, setActiveTab] = useState('booking');
 
   useEffect(() => {
     fetchUserLocation();
@@ -97,13 +100,51 @@ export default function HomePage() {
           >
             <DirectionsDataContext.Provider value={directionsDataValue}>
               <SelectedCarAmountContext.Provider value={carAmountValue}>
-                <div className="grid grid-cols-1 md:grid-cols-3 h-full">
+                {/* Mobile Tab Navigation */}
+                <div className="md:hidden flex border-b">
+                  <button
+                    onClick={() => setActiveTab('booking')}
+                    className={`flex-1 py-3 text-center font-medium ${
+                      activeTab === 'booking' 
+                        ? 'text-blue-600 border-b-2 border-blue-600' 
+                        : 'text-gray-500'
+                    }`}
+                  >
+                    Book Your Ride
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('map')}
+                    className={`flex-1 py-3 text-center font-medium ${
+                      activeTab === 'map' 
+                        ? 'text-blue-600 border-b-2 border-blue-600' 
+                        : 'text-gray-500'
+                    }`}
+                  >
+                    Map
+                  </button>
+                </div>
+                
+                {/* Desktop Layout */}
+                <div className="hidden md:grid md:grid-cols-3 h-full">
                   <div className="overflow-y-auto">
                     <Booking />
                   </div>
                   <div className="col-span-2 h-full">
                     <MapboxMap />
                   </div>
+                </div>
+                
+                {/* Mobile Layout with Conditional Rendering */}
+                <div className="md:hidden h-full">
+                  {activeTab === 'booking' ? (
+                    <div className="h-[calc(100vh-110px)] overflow-y-auto">
+                      <Booking />
+                    </div>
+                  ) : (
+                    <div className="h-[calc(100vh-110px)]">
+                      <MapboxMap />
+                    </div>
+                  )}
                 </div>
               </SelectedCarAmountContext.Provider>
             </DirectionsDataContext.Provider>
@@ -145,9 +186,9 @@ export function BookingForm() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Book Your Ride</h1>
+      <h1 className="text-2xl font-bold mb-4 p-4">Book Your Ride</h1>
       
-      <div className="bg-white rounded-lg p-6 border space-y-6">
+      <div className="bg-white rounded-lg p-6 border space-y-6 mx-4">
         {/* Existing Location Fields */}
         <div className="space-y-4">
           <div>
@@ -256,7 +297,7 @@ export function BookingForm() {
         {/* Existing Payment Methods Section */}
         <div>
           <h2 className="text-lg font-medium mb-4">Payment Methods</h2>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             {paymentMethods.map((method) => (
               <motion.div
                 key={method.id}
@@ -279,8 +320,8 @@ export function BookingForm() {
         </div>
 
         {/* Existing Book Button */}
-        <button className="w-full py-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
-          {isSharedRide ? 'Book Shared Ride' : 'Book'}
+        <button className="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium">
+          {isSharedRide ? 'Book Shared Ride' : 'Book Private Ride'}
         </button>
       </div>
     </div>
