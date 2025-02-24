@@ -1,0 +1,27 @@
+:root {
+  --background: #ffffff;
+  --foreground: #020817;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --accent: #f3f4f6;
+  --accent-foreground: #1f2937;
+  --border: #e5e7eb;
+  --toggle-bg: #e5e5e5;
+  --toggle-fg: #ffffff;
+  --toast-bg: #333333;
+  --toast-color: #ffffff;
+}
+
+.dark {
+  --background: #020817;
+  --foreground: #ffffff;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --accent: #1f2937;
+  --accent-foreground: #f3f4f6;
+  --border: #1f2937;
+  --toggle-bg: #1a1a1a;
+  --toggle-fg: #1a1a1a;
+  --toast-bg: #1f2937;
+  --toast-color: #ffffff;
+} 
