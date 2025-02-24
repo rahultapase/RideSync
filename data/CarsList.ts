@@ -9,7 +9,7 @@ const CarsList: Car[] = [
   {
     id: 1,
     name: "Auto",
-    image: "/images/Auto1.png",
+    image: "/Auto1.png",
     charges: 15,
   },
   {
